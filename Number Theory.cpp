@@ -65,7 +65,7 @@ const int N = 1e6 + 6;
 
 bool Prime[N];
 
-void sieve() {
+void sieve() {       o(n) ==> o(n*log(log(n+1))).
     fill(Prime, Prime + N, true);
     Prime[0] = Prime[1] = false;
 
