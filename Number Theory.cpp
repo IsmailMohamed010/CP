@@ -59,7 +59,7 @@ bool isPrime(int n) {   // O(sqrt(n))
 
 
 
-// Is Prime from 1 to n.
+// Is Prime.
 
 const int N = 1e6 + 6;
 
@@ -78,6 +78,11 @@ void sieve() {       o(n) ==> o(n*log(log(n+1))).
     }
 }
 
+/*
+Be worried that if you check about one prime number only you find isprime() is better than sieve() 
+as the time complexity for isprime() is less than sieve()  (o(sqrt(n) < o(n)),
+but if you check about more than one use sieve() better than isprime() (o(n) < o(n*sqrt(n))).
+*/
 
 // Get Power LL.
 
