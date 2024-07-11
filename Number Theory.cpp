@@ -16,6 +16,12 @@ using namespace std;
 #define sub_mod(a, b, m) (((a % m) - (b % m) + m) % m)
 #define mul_mod(a, b, m) (((a % m) * (b % m)) % m)
 
+/* Mod Equations (use it to avoid overflow).
+ * (a + b) % x = (a % x + b % x) % x
+ * (a - b) % x = (a % x - b % x) % x
+ * (a * b) % x = (a % x * b % x) % x
+ */
+
 
 // Fixed Mod.
 
@@ -120,7 +126,9 @@ ll fPower(ll a, ll b) {  // O(log(b))
     return (b & 1) ? p * p * a : p * p;
 }
 
-
+/*
+ * Basic ideas for GCD  gcd(a,b) = 1 mean that a & b is a co-prime numbers.
+ */
 // GCD.
 
 ll GCD(ll a, ll b) {  // O(log(n))
@@ -130,8 +138,6 @@ ll GCD(ll a, ll b) {  // O(log(n))
 
 
 // LCM.
-
-
 // GCD * LCM = a * b
 ll LCM(ll a, ll b) {
     return a * (b / GCD(a, b));
@@ -139,7 +145,7 @@ ll LCM(ll a, ll b) {
 
 
 
-int main(){    
+int main(){
     
     return 0;
 }
