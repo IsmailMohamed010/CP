@@ -10,6 +10,13 @@ using namespace std;
 
 #define ll long long
 
+
+#define ceil(n, m) (((n) + (m) - 1) / (m))
+#define add_mod(a, b, m) (((a % m) + (b % m)) % m)
+#define sub_mod(a, b, m) (((a % m) - (b % m) + m) % m)
+#define mul_mod(a, b, m) (((a % m) * (b % m)) % m)
+
+
 // Fixed Mod.
 
 ll fixMod(ll a, ll b) {
@@ -65,7 +72,7 @@ const int N = 1e6 + 6;
 
 bool Prime[N];
 
-void sieve() {       o(n) ==> o(n*log(log(n+1))).
+void sieve() {      // o(n) ==> o(n*log(log(n+1))).
     fill(Prime, Prime + N, true);
     Prime[0] = Prime[1] = false;
 
@@ -83,6 +90,27 @@ Be worried that if you check about one prime number only you find isprime() is b
 as the time complexity for isprime() is less than sieve()  (o(sqrt(n) < o(n)),
 but if you check about more than one use sieve() better than isprime() (o(n) < o(n*sqrt(n))).
 */
+
+
+// Get Prime Factors like this formula ==> N (N>1) = P1^e1 * P2^e2 * P3^e3 ......
+vector<pair<int, int> > getPrimeFactors(ll n) { // O(sqrt(n))
+    vector<pair<int, int> > ret;
+    for (int p = 2; p * p <= n; p++) {
+        int e = 0;
+        while (n % p == 0) {
+            n /= p;
+            e++;
+        }
+        if (e > 0) {
+            ret.push_back({ p, e });
+        }
+    }
+    if (n > 1) {
+        ret.push_back({ n, 1 });
+    }
+    return ret;
+}
+
 
 // Get Power LL.
 
@@ -111,8 +139,7 @@ ll LCM(ll a, ll b) {
 
 
 
-int main(){
-
+int main(){    
+    
     return 0;
 }
-
