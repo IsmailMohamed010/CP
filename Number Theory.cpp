@@ -48,6 +48,19 @@ vector<int> getDivisors(int n) {    // O(sqrt(n))
     return ret;
 }
 
+// Function to get Divisors for all number form 1 to n
+vector<ll>res(1e6+5,1);
+ll getDivisors_form_1_to_n(ll n) {  // o(n*log(n))
+    for(ll i = 2;i<=n;i++) {
+        ll z= i;
+        while(z<=n) {
+            res[z]++;
+            z+=i;
+        }
+    }
+}
+
+
 // Get Multiples.
 
 vector<int> getMultiples(int x, int n) {    // O(n/x)
@@ -92,7 +105,7 @@ void sieve() {      // o(n) ==> o(n*log(log(n+1))).
 }
 
 /*
-Be worried that if you check about one prime number only you find isprime() is better than sieve() 
+Be worried that if you check about one prime number only you find isprime() is better than sieve()
 as the time complexity for isprime() is less than sieve()  (o(sqrt(n) < o(n)),
 but if you check about more than one use sieve() better than isprime() (o(n) < o(n*sqrt(n))).
 */
