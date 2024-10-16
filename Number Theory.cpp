@@ -24,6 +24,8 @@ using namespace std;
 
 
 // Fixed Mod.
+// normal way for positive number while(a>=n)a-=n.
+// normal way for negative number while(a<0)a+=n.
 
 ll fixMod(ll a, ll b) {
     return (a % b + b) % b;
@@ -32,8 +34,9 @@ ll fixMod(ll a, ll b) {
 
 // Get Divisors.
 
-vector<int> getDivisors(int n) {    // O(sqrt(n))
+vector<int> getDivisors(int n) {// O(sqrt(n))
     vector<int> ret;
+    if(n == 0 && n == 1) return ret;
     int i = 1;
     for (i = 1; i * i < n; i++) {
         if (n % i == 0) {
@@ -46,6 +49,39 @@ vector<int> getDivisors(int n) {    // O(sqrt(n))
         ret.push_back(i);
     }
     return ret;
+}
+
+
+// Prime Factorization.
+
+vector<int>Prime_Factorization(int n){
+    vector<int>res;
+    bool devide = false;
+    while(n != 1 && devide){
+        for(int i = 2;i * i<=n;i++){
+            if(n % i == 0){
+                res.push_back(i);
+                n/=i;
+                devide = true;
+                break;
+            }
+        }
+    }
+    if(!devide)res.push_back(n);
+    return res;
+}
+
+
+vector<int>Prime_Factorization2(int n){
+    vector<int>res;
+    for(int i = 2;i * i<=n;i++){
+        while(n % i == 0){
+            res.push_back(i);
+            n/=i;
+        }
+    }
+    if(n != 1)res.push_back(n);
+    return res;
 }
 
 // Function to get Divisors for all number form 1 to n
@@ -159,6 +195,6 @@ ll LCM(ll a, ll b) {
 
 
 int main(){
-    
+
     return 0;
 }
